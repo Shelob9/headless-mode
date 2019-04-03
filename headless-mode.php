@@ -31,7 +31,9 @@ function headlessModeRedirect($url, $permanent = false)
  */
 add_action( 'parse_request', 'disable_front_end', 99 );
 function disable_front_end() {
-
+	if( current_user_can( 'edit_posts' )){
+		return;
+	}
 	global $wp;
 
 	/**
