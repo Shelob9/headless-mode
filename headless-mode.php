@@ -26,8 +26,6 @@ function headlessModeRedirect($url, $permanent = false)
 	exit();
 }
 
-
-
 /**
  * Based on https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
  */
@@ -50,7 +48,6 @@ function disable_front_end() {
 		)
 	) {
 		headlessModeRedirect( HEADLESS_MODE_CLIENT_URL, true );
-		die();
 		exit;
 	}
 

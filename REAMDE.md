@@ -7,7 +7,7 @@ This plugin blocks all requests to a WordPress site accept for:
 * wp-admin
 * The WordPress REST API
 * wp-cron (debatable)
-* [WP GraphQL](https://github.com/wp-graphql/wp-graphql)
+* [WP GraphQL](https://www.wpgraphql.com/)
 
 This is largely based on a code snippet from Jason Bahl of WP GraphQL. 
 
