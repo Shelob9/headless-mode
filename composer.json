@@ -1,0 +1,12 @@
+{
+    "name": "shelob9/headless-mode",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Josh Pollock",
+            "email": "josh@calderawp.com"
+        }
+    ],
+    "require": {}
+}

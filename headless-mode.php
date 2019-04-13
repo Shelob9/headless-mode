@@ -34,6 +34,7 @@ function disable_front_end() {
 	if( current_user_can( 'edit_posts' )){
 		return;
 	}
+
 	global $wp;
 
 	/**
