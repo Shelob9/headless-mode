@@ -18,3 +18,26 @@ https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
 1. Set hte constant `HEADLESS_MODE_CLIENT_URL` to the URL for the front-end client
 2. Activate plugin.
 3. Profit
+
+## Install With Composer
+```json
+
+{
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:Shelob9/headless-mode.git"
+    }
+  ],
+  "require": {
+    "shelob9/headless-mode": "*"
+  },
+  "extra": {
+    "wordpress-plugin": "wp-content/plugins/{$name}",
+    "wordpress-theme": "wp-content/themes/{$name}",
+    "wordpress-muplugin": "wp-content/mu-plugins/{$name}"
+  }
+}
+
+```
