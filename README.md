@@ -2,7 +2,7 @@
 A helper plugin for putting WordPress in "headless mode". Designed for when WordPress is the CMS for a headless/ decoupled WordPress site.
 
 ## What This Plugin Does
-This plugin blocks all requests to a WordPress site accept for:
+This plugin blocks all requests to a WordPress site except for:
 
 * wp-admin
 * The WordPress REST API
@@ -15,8 +15,8 @@ https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
 
 ## How To Use This Plugin
 
-1. Set hte constant `HEADLESS_MODE_CLIENT_URL` to the URL for the front-end client
-2. Activate plugin.
+1. Activate plugin.
+2. In wp-config.php, add a line defining the constant: `define( 'HEADLESS_MODE_CLIENT_URL', 'https://example.com' );` (be sure to change the URL to yours!)
 3. Profit
 
 ## Install With Composer
