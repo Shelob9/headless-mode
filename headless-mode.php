@@ -12,7 +12,7 @@
  */
 
 if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) {
-	define( 'HEADLESS_MODE_CLIENT_URL', 'https://example.com' )
+	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' )
 });
 
 /**
@@ -35,17 +35,22 @@ add_action( 'admin_menu', 'headless_mode_settings' );
 
 function headless_mode_settings_output() {
 
-	$clientUrl = HEADLESS_MODE_CLIENT_URL !== 'https://example.com' ? HEADLESS_MODE_CLIENT_URL : __( 'Your site is not redirecting', 'headless-mode' );
-
+	$clientUrl = HEADLESS_MODE_CLIENT_URL !== 'https://hiroy.club' ? HEADLESS_MODE_CLIENT_URL : false;
+	
 	?>
 		<div class="wrap">
 			<h2>
 				<?php _e( 'Headless Mode', 'headless-mode' ); ?>
 			</h2>
 			<p> <?php _e( 'Your site is currently set to redirect to:', 'headless-mode'); ?>
-			<p> <code><?php echo $clientUrl ?></code>
+			<p> <code><?php 
+			if( $clientUrl ){
+				echo esc_url($clientUrl);
+	   		}else {
+	   			echo __( 'Your site is not redirecting.', 'headless-mode' );
+	   		} ?></code>
 			<p> <?php _e( 'Add the following to your wp-config.php file to redirect all traffic to the new front end of the site (change the URL before pasting!):', 'headless-mode' ); ?>
-			<p> <code> define( 'HEADLESS_MODE_CLIENT_URL', 'https://example.com' );</code></p>
+			<p> <code> define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );</code></p>
 			<p> <em> <?php _e( 'If after saving the wp-config.php file, your site is still not redirecting, make sure you\'ve replaced <code>https://example.com</code> above with your front end web address.', 'headless-mode' ); ?> </em></p>
 		</div>
 
