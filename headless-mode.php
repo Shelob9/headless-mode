@@ -66,7 +66,7 @@ function headless_mode_settings_output() {
  */
 function headlessModeRedirect($url, $permanent = false)
 {
-	if ( HEADLESS_MODE_CLIENT_URL ==='https://example.com' ){
+	if ( HEADLESS_MODE_CLIENT_URL ==='https://hiroy.club' ){
 		return;
 	}
 
