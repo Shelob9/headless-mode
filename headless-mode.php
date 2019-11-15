@@ -1,17 +1,62 @@
 <?php
 /*
-Plugin Name: Headless Mode
-Plugin URI: http://wordpress.org/plugins/hello-dolly/
-Description: Disable access to site unless can edit posts or making request to REST API or WP_GRAPHQL
-Author:
-Version: 0.0.1
-Author URI: http://ma.tt/
-*/
+ * Plugin Name: Headless Mode
+ * Plugin URI: 
+ * Description: This plugin disables access to the front end of your site unless the logged-in user can edit posts. It also automatically accepts requests to REST API or WP_GRAPHQL endpoints.
+ * Author: @shelob9, @jasonbahl, @benmeredithgmailcom
+ * Version: 0.0.2
+ * Author URI: http://www.wpsteward.com
+ * License: GPL V2
+ * Text Domain: headless-mode
+ * 
+ */
 
 if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) {
-	define('HEADLESS_MODE_CLIENT_URL', 'https://futurecapable.dev/' )
+	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' )
 });
 
+/**
+ * Creates a simple settings page to display the constant name and instruct users on how to change it. 
+ * 
+ */
+
+add_action( 'admin_menu', 'headless_mode_settings' );
+ function headless_mode_settings() {
+    
+	add_submenu_page(
+        'options-general.php', 
+        __( 'Headless Mode set up', 'headless-mode' ), 
+        __( 'Headless Mode', 'headless-mode' ), 
+        'manage_options', 
+        'headless-mode', 
+        'headless_mode_settings_output' 
+    );
+}
+
+function headless_mode_settings_output() {
+
+	$clientUrl = HEADLESS_MODE_CLIENT_URL !== 'https://hiroy.club' ? HEADLESS_MODE_CLIENT_URL : false;
+	
+	?>
+		<div class="wrap">
+			<h2>
+				<?php _e( 'Headless Mode', 'headless-mode' ); ?>
+			</h2>
+			<p> <?php _e( 'Your site is currently set to redirect to:', 'headless-mode'); ?>
+			<p> <code><?php 
+			if( $clientUrl ){
+				echo esc_url($clientUrl);
+	   		}else {
+	   			echo __( 'Your site is not redirecting.', 'headless-mode' );
+	   		} ?></code>
+			<p> <?php _e( 'Add the following to your wp-config.php file to redirect all traffic to the new front end of the site (change the URL before pasting!):', 'headless-mode' ); ?>
+			<p> <code> define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );</code></p>
+			<p> <em> <?php _e( 'If after saving the wp-config.php file, your site is still not redirecting, make sure you\'ve replaced <code>https://hiroy.club</code> above with your front end web address.', 'headless-mode' ); ?> </em></p>
+		</div>
+
+	<?php
+
+}
 /**
  *
  * @see https://stackoverflow.com/a/768472/1469799
@@ -21,6 +66,10 @@ if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) {
  */
 function headlessModeRedirect($url, $permanent = false)
 {
+	if ( HEADLESS_MODE_CLIENT_URL ==='https://hiroy.club' ){
+		return;
+	}
+
 	header('Location: ' . $url, true, $permanent ? 301 : 302);
 
 	exit();
