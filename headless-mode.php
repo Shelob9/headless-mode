@@ -51,7 +51,7 @@ function headless_mode_settings_output() {
 	   		} ?></code>
 			<p> <?php _e( 'Add the following to your wp-config.php file to redirect all traffic to the new front end of the site (change the URL before pasting!):', 'headless-mode' ); ?>
 			<p> <code> define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );</code></p>
-			<p> <em> <?php _e( 'If after saving the wp-config.php file, your site is still not redirecting, make sure you\'ve replaced <code>https://example.com</code> above with your front end web address.', 'headless-mode' ); ?> </em></p>
+			<p> <em> <?php _e( 'If after saving the wp-config.php file, your site is still not redirecting, make sure you\'ve replaced <code>https://hiroy.club</code> above with your front end web address.', 'headless-mode' ); ?> </em></p>
 		</div>
 
 	<?php
