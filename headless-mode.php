@@ -99,6 +99,8 @@ function disable_front_end() {
 			! defined( 'GRAPHQL_HTTP_REQUEST' )
 		)
 	) {
+		// TODO: consider how we might account for the remainder of the link in the URL, 
+		// like hiroy.club/blog/i-forgot-to-say-hi-roy to route correctly.
 		headlessModeRedirect( HEADLESS_MODE_CLIENT_URL, true );
 		exit;
 	}
