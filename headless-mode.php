@@ -85,7 +85,7 @@ function disable_front_end() {
 	}
 
 	global $wp;
-
+	
 	/**
 	 * If the request is not part of a CRON, REST Request, GraphQL Request or Admin request,
 	 * output some basic, blank markup
@@ -99,9 +99,10 @@ function disable_front_end() {
 			! defined( 'GRAPHQL_HTTP_REQUEST' )
 		)
 	) {
-		// TODO: consider how we might account for the remainder of the link in the URL, 
-		// like hiroy.club/blog/i-forgot-to-say-hi-roy to route correctly.
-		headlessModeRedirect( HEADLESS_MODE_CLIENT_URL, true );
+		// adds the rest of the request to the new URL.
+		$new_url = HEADLESS_MODE_CLIENT_URL . '/' . $wp->request;
+		
+		headlessModeRedirect( $new_url, true );
 		exit;
 	}
 
