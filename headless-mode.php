@@ -100,8 +100,8 @@ function disable_front_end() {
 		)
 	) {
 		// adds the rest of the request to the new URL.
-		$new_url = HEADLESS_MODE_CLIENT_URL . '/' . $wp->request;
-		
+		$new_url = trailingslashit( HEADLESS_MODE_CLIENT_URL ) . $wp->request;
+
 		headlessModeRedirect( $new_url, true );
 		exit;
 	}
