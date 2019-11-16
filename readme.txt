@@ -4,7 +4,7 @@ Donate link: https://www.wpsteward.com/donations/plugin-support/
 Tags: headless, static, gatsby, JAMstack
 Requires at least: 5.0
 Tested up to: 5.3
-Stable tag: 0.0.3
+Stable tag: 0.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,17 @@ Once you've activated the plugin, add the following line to your wp-config.php f
 
 Be sure to change the URL to the actual URL for the front end of your site. 
 
+= How can I contribute to this plugin?=
+The team behind Headless Mode accepts PRs at the plugin's [GitHub repository](https://github.com/Shelob9/headless-mode "Headless Mode on GitHub" ) 
+
+If you have general questions, use the forum here or hit us up on Twitter @benUNC @jasonbahl @josh412
+
 == Changelog ==
+= 0.0.4 =
+* more changes to the readme for display on wordpress.org 
+* 73% more #HiRoy. Have you said Hi to Roy today? https://hiroy.club
+* change the author URL to not be so self-serving, Ben. 
+* a much needed Points review by Meagan Hanes based on the above changes is pending. 
 
 = 0.0.3 =
 * Modifications for the .org readme authors, etc.
