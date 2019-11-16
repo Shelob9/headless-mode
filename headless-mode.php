@@ -64,7 +64,7 @@ function headless_mode_settings_output() {
  * @param $url
  * @param bool $permanent
  */
-function headlessModeRedirect($url, $permanent = false)
+function headless_mode_redirect($url, $permanent = false)
 {
 	if ( HEADLESS_MODE_CLIENT_URL ==='https://hiroy.club' ){
 		return;
@@ -78,14 +78,15 @@ function headlessModeRedirect($url, $permanent = false)
 /**
  * Based on https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
  */
-add_action( 'parse_request', 'disable_front_end', 99 );
-function disable_front_end() {
+add_action( 'parse_request', 'headless_mode_disable_front_end', 99 );
+
+function headless_mode_disable_front_end() {
 	if( current_user_can( 'edit_posts' )){
 		return;
 	}
 
 	global $wp;
-
+	
 	/**
 	 * If the request is not part of a CRON, REST Request, GraphQL Request or Admin request,
 	 * output some basic, blank markup
@@ -99,7 +100,10 @@ function disable_front_end() {
 			! defined( 'GRAPHQL_HTTP_REQUEST' )
 		)
 	) {
-		headlessModeRedirect( HEADLESS_MODE_CLIENT_URL, true );
+		// adds the rest of the request to the new URL.
+		$new_url = trailingslashit( HEADLESS_MODE_CLIENT_URL ) . $wp->request;
+
+		headless_mode_redirect( $new_url, true );
 		exit;
 	}
 
