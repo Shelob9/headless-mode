@@ -16,7 +16,7 @@ https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
 ## How To Use This Plugin
 
 1. Activate plugin.
-2. In wp-config.php, add a line defining the constant: `define( 'HEADLESS_MODE_CLIENT_URL', 'https://example.com' );` (be sure to change the URL to yours!)
+2. In wp-config.php, add a line defining the constant: `define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );` (be sure to change the URL to yours!)
 3. Profit
 
 ## Install With Composer
