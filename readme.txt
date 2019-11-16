@@ -23,7 +23,7 @@ Once you've activated the plugin, add the following line to your wp-config.php f
 
 Be sure to change the URL to the actual URL for the front end of your site. 
 
-= How can I contribute to this plugin?=
+= How can I contribute to this plugin? =
 The team behind Headless Mode accepts PRs at the plugin's [GitHub repository](https://github.com/Shelob9/headless-mode "Headless Mode on GitHub" ) 
 
 If you have general questions, use the forum here or hit us up on Twitter @benUNC @jasonbahl @josh412
