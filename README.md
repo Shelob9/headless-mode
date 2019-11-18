@@ -1,5 +1,5 @@
 
-A helper plugin for putting WordPress in "headless mode". Designed for when WordPress is the CMS for a headless/ decoupled WordPress site.
+A helper plugin for putting WordPress in "headless mode". Designed for when WordPress is the CMS for a headless / decoupled WordPress site.
 
 ## What This Plugin Does
 This plugin blocks all requests to a WordPress site except for:
