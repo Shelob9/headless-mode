@@ -41,3 +41,5 @@ https://gist.github.com/jasonbahl/5dd6c046cd5a5d39bda9eaaf7e32a09d
 }
 
 ```
+## Contribute to Headless Mode
+Interested in contributing? See our [contributor guide](CONTRIBUTING.md) for the best way to do that.
