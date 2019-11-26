@@ -7,9 +7,9 @@ When contributing please ensure you follow the guidelines below so that we can k
 ## Getting Started
 
 * Submit a ticket for your issue, assuming one does not already exist.
-  * https://github.com/shelob9/headless-mode/issues
-  * Clearly describe the issue including steps to reproduce the bug.
-  * Make sure you fill in the earliest version that you know has the issue as well as the version of WordPress you're using.
+* https://github.com/shelob9/headless-mode/issues
+* Clearly describe the issue including steps to reproduce the bug.
+* Make sure you fill in the earliest version that you know has the issue as well as the version of WordPress you're using.
 
 ## Making Changes
 
