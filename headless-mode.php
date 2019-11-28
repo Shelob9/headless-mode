@@ -1,49 +1,49 @@
 <?php
 /*
  * Plugin Name: Headless Mode
- * Plugin URI: 
+ * Plugin URI:
  * Description: This plugin disables access to the front end of your site unless the logged-in user can edit posts. It also automatically accepts requests to REST API or WP_GRAPHQL endpoints.
  * Version: 0.0.4
  * Author: Josh Pollock, Jason Bahl, and Ben Meredith
  * Author URI: https://github.com/Shelob9/headless-mode
  * License: GPL V2
  * Text Domain: headless-mode
- * 
+ *
  */
 
-if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) {
+if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) ) {
 	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' )
-});
+};
 
 /**
- * Creates a simple settings page to display the constant name and instruct users on how to change it. 
- * 
+ * Creates a simple settings page to display the constant name and instruct users on how to change it.
+ *
  */
 
 add_action( 'admin_menu', 'headless_mode_settings' );
  function headless_mode_settings() {
-    
+
 	add_submenu_page(
-        'options-general.php', 
-        __( 'Headless Mode set up', 'headless-mode' ), 
-        __( 'Headless Mode', 'headless-mode' ), 
-        'manage_options', 
-        'headless-mode', 
-        'headless_mode_settings_output' 
+        'options-general.php',
+        __( 'Headless Mode set up', 'headless-mode' ),
+        __( 'Headless Mode', 'headless-mode' ),
+        'manage_options',
+        'headless-mode',
+        'headless_mode_settings_output'
     );
 }
 
 function headless_mode_settings_output() {
 
 	$clientUrl = HEADLESS_MODE_CLIENT_URL !== 'https://hiroy.club' ? HEADLESS_MODE_CLIENT_URL : false;
-	
+
 	?>
 		<div class="wrap">
 			<h2>
 				<?php _e( 'Headless Mode', 'headless-mode' ); ?>
 			</h2>
 			<p> <?php _e( 'Your site is currently set to redirect to:', 'headless-mode'); ?>
-			<p> <code><?php 
+			<p> <code><?php
 			if( $clientUrl ){
 				echo esc_url($clientUrl);
 	   		}else {
@@ -86,7 +86,7 @@ function headless_mode_disable_front_end() {
 	}
 
 	global $wp;
-	
+
 	/**
 	 * If the request is not part of a CRON, REST Request, GraphQL Request or Admin request,
 	 * output some basic, blank markup
