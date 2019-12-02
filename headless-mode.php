@@ -3,7 +3,7 @@
  * Plugin Name: Headless Mode
  * Plugin URI: 
  * Description: This plugin disables access to the front end of your site unless the logged-in user can edit posts. It also automatically accepts requests to REST API or WP_GRAPHQL endpoints.
- * Version: 0.0.4
+ * Version: 0.1.0
  * Author: Josh Pollock, Jason Bahl, and Ben Meredith
  * Author URI: https://github.com/Shelob9/headless-mode
  * License: GPL V2
@@ -12,8 +12,8 @@
  */
 
 if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) ) {
-	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' )
-});
+	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );
+};
 
 /**
  * Creates a simple settings page to display the constant name and instruct users on how to change it. 
