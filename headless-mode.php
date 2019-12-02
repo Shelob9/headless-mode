@@ -11,7 +11,7 @@
  * 
  */
 
-if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) {
+if( ! defined( 'HEADLESS_MODE_CLIENT_URL' ) ) {
 	define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' )
 });
 
