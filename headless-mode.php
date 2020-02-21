@@ -33,9 +33,14 @@ add_action( 'admin_menu', 'headless_mode_settings' );
     );
 }
 
+add_action( 'admin_init', 'headless_mode_add_settings' );
+function headless_mode_add_settings() {
+	register_setting( 'headless-mode-settings', 'headless_mode_client_url' );
+}
+
 function headless_mode_settings_output() {
 
-	$clientUrl = HEADLESS_MODE_CLIENT_URL !== 'https://hiroy.club' ? HEADLESS_MODE_CLIENT_URL : false;
+	$clientUrl = 'https://hiroy.club' !== headless_mode_client_url() ? headless_mode_client_url() : false;
 	
 	?>
 		<div class="wrap">
@@ -52,6 +57,26 @@ function headless_mode_settings_output() {
 			<p> <?php _e( 'Add the following to your wp-config.php file to redirect all traffic to the new front end of the site (change the URL before pasting!):', 'headless-mode' ); ?>
 			<p> <code> define( 'HEADLESS_MODE_CLIENT_URL', 'https://hiroy.club' );</code></p>
 			<p> <em> <?php _e( 'If after saving the wp-config.php file, your site is still not redirecting, make sure you\'ve replaced <code>https://hiroy.club</code> above with your front end web address.', 'headless-mode' ); ?> </em></p>
+
+			<p> Or You can setting from below </p>
+			<form method="post" action="options.php"> 
+				<?php settings_fields( 'headless-mode-settings' ); ?>
+				<?php do_settings_sections( 'headless-mode-settings' ); ?>
+				<table class="form-table">
+				<tbody>
+					<tr>
+						<th scope="row">
+							<label for="headless_mode_client_url"><?php _e( 'client url', 'headless-mode' ); ?></label>
+						</th>
+						<td>
+							<input type="url" name="headless_mode_client_url" value="<?php echo esc_attr( get_option('headless_mode_client_url') );?>" class="regular-text code" />				
+						</td>
+					</tr>
+				</tbody>
+				</table>
+				<?php submit_button(); ?>
+			</form>
+
 		</div>
 
 	<?php
@@ -66,7 +91,7 @@ function headless_mode_settings_output() {
  */
 function headless_mode_redirect($url, $permanent = false)
 {
-	if ( HEADLESS_MODE_CLIENT_URL ==='https://hiroy.club' ){
+	if ( 'https://hiroy.club' === headless_mode_client_url() ){
 		return;
 	}
 
@@ -101,10 +126,24 @@ function headless_mode_disable_front_end() {
 		)
 	) {
 		// adds the rest of the request to the new URL.
-		$new_url = trailingslashit( HEADLESS_MODE_CLIENT_URL ) . $wp->request;
+		$new_url = trailingslashit( headless_mode_client_url() ) . $wp->request;
 
 		headless_mode_redirect( $new_url, true );
 		exit;
 	}
+
+}
+
+function headless_mode_client_url() {
+
+	if ( '' !== get_option( 'headless_mode_client_url' ) ) {
+		return get_option( 'headless_mode_client_url' );
+	}
+
+	if ( defined( 'HEADLESS_MODE_CLIENT_URL' ) ) {
+		return HEADLESS_MODE_CLIENT_URL;
+	}
+
+	return 'https://hiroy.club';
 
 }
