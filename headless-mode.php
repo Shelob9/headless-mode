@@ -81,7 +81,21 @@ function headless_mode_redirect($url, $permanent = false)
 add_action( 'parse_request', 'headless_mode_disable_front_end', 99 );
 
 function headless_mode_disable_front_end() {
-	if( current_user_can( 'edit_posts' )){
+
+	/**
+	 * Filters whether the current user has access to the front-end.
+	 *
+	 * By default, the front-end is disabled if the user doesn't
+	 * have the capability to "edit_posts".
+	 *
+	 * Return true if you want the front-end to be disabled and
+	 * the current user to be redirected to headless mode.
+	 *
+	 * @param bool $disabled True if the current user doesn't have the capability to "edit_posts".
+	 */
+	$disable_front_end = apply_filters( 'headless_mode_disable_front_end', ! current_user_can( 'edit_posts' ) );
+
+	if ( false === $disable_front_end ) {
 		return;
 	}
 
