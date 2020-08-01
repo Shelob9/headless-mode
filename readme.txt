@@ -3,8 +3,8 @@ Contributors: ben.meredith@gmail.com, shelob9, jasonbahl
 Donate link: https://www.wpsteward.com/donations/plugin-support/
 Tags: headless, static, gatsby, JAMstack
 Requires at least: 5.0
-Tested up to: 5.4
-Stable tag: 0.1.0
+Tested up to: 5.5
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,11 @@ The team behind Headless Mode accepts PRs at the plugin's [GitHub repository](ht
 If you have general questions, use the forum here or hit us up on Twitter @benUNC @jasonbahl @josh412
 
 == Changelog ==
+= 0.2.0 =
+* tested up to WordPress 5.5
+* 17 total new points for a relatively long time with no support issues.
+* The plugin still works like a CHARM, and none of you people have donated.
+
 = 0.1.0 =
 * resolve PHP notice due to missing parentheses.
 * tally of 14 total points based on previous issues.
