@@ -30,6 +30,7 @@ If you have general questions, use the forum here or hit us up on Twitter @benUN
 
 == Changelog ==
 = 0.2.0 =
+* adds a filter for headless_mode_disable_front_end so that access to the front end can be granted on a per-user basis.
 * tested up to WordPress 5.5
 * 17 total new points for a relatively long time with no support issues.
 * The plugin still works like a CHARM, and none of you people have donated.
