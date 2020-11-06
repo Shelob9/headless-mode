@@ -116,9 +116,19 @@ function headless_mode_disable_front_end() {
 	) {
 		// adds the rest of the request to the new URL.
 		$new_url = trailingslashit( HEADLESS_MODE_CLIENT_URL ) . $wp->request;
-
-		headless_mode_redirect( $new_url, true );
-		exit;
+		
+		/**
+		 * We should redirect. But will we?
+		 *
+		 * This filter allows you to do something else, when a redirect normally would occur.
+		 *
+		 * @param bool $will_redirct If truthy redirect will happen. If not, it will not. Do your own thing. Be you.
+		 */
+		if( apply_filters( 'headless_mode_will_redirect', true, $new_url ) ){
+			headless_mode_redirect( $new_url, true );
+			exit;
+		}
+		
 	}
 
 }
