@@ -108,6 +108,8 @@ function headless_mode_disable_front_end() {
 	if (
 		! defined( 'DOING_CRON' ) &&
 		! defined( 'REST_REQUEST' ) &&
+		// prevents the case of a new user activating the plugin but not yet setting the constant. Added in 0.3.0
+		HEADLESS_MODE_CLIENT_URL !== 'https://hiroy.club' &&
 		! is_admin() &&
 		(
 			empty( $wp->query_vars['rest_oauth1'] ) &&
