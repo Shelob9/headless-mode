@@ -4,7 +4,7 @@ Donate link: https://www.wpsteward.com/donations/plugin-support/
 Tags: headless, static, gatsby, JAMstack
 Requires at least: 5.0
 Tested up to: 6.1
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,13 @@ The team behind Headless Mode accepts PRs at the plugin's [GitHub repository](ht
 If you have general questions, use the forum here or hit us up on Twitter @benUNC @jasonbahl @josh412
 
 == Changelog ==
+
+= 0.4.0 =
+* checked for compatibility with the latest WP version
+* read several hot takes from Josh on Twitter. Inaccurately attributed them to Elon Musk.
+* 33 points and several attaboys to Alex Standiford for testing this and submitting a PR. You're the wind beneath several wings.
+* I checked again, and nobody has donated money toward the maintenance of this plugin. I'm not mad, I'm just disappointed. https://benlikes.us/donate
+
 = 0.3.0 =
 * adds a filter named headless_mode_will_redirect so that individual requests can make it through to WP if needed.
 * fixed an issue with new installs showing a white screen for users not logged in, until a constant is set. 
