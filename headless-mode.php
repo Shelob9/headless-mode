@@ -7,7 +7,6 @@
  * Author: Josh Pollock, Jason Bahl, and Ben Meredith
  * Author URI: https://github.com/Shelob9/headless-mode
  * License: GPL V2
- * Tested up to: 6.1
  * Text Domain: headless-mode
  * 
  */
